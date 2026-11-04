@@ -94,6 +94,10 @@ public sealed class WpfServices(string root) : IOpenSoftNodesServices
 
     public IInstanceStore Store { get; } = new DirectoryInstanceStore(root);
 
+    /// <summary>Los enlaces con un PLC real van por EtherNet/IP (lo que lee el router: <c>eip://ip:44818</c>).</summary>
+    public Func<FactoryNodes.Iec61131.Emission.IPlcAddressing, FactoryNodes.Monitoring.IPlcConnection>? PlcClients { get; } =
+        addressing => new FactoryNodes.Monitoring.Cip.CipPlcConnection(addressing);
+
     public Window? Owner { get; set; }
 
     public (byte[] Bytes, string FileName)? ChooseProgram()

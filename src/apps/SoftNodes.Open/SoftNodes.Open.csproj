@@ -19,6 +19,9 @@
   <ItemGroup>
     <!-- Pinta los iconos SVG de los botones (BSD-3-Clause) -->
     <PackageReference Include="SharpVectors.Wpf" Version="1.8.6" />
+    <!-- El editor del código del depurador (MIT), el mismo que usan FactoryNodes y SoftNodes Pro -->
+    <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
+    <ProjectReference Include="..\..\libs\FactoryNodes.SoftNodes.Debugging\FactoryNodes.SoftNodes.Debugging.csproj" />
   </ItemGroup>
 
   <ItemGroup>

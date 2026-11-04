@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2B2140" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Salir del bloque: flecha hacia arriba desde una raya. -->
+  <path d="M12,15 L12,3 M7.5,7.5 L12,3 L16.5,7.5 M5,21 L19,21"/>
+</svg>

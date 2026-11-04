@@ -55,7 +55,7 @@ public enum ProgramFileState { Unchanged, Changing, Changed }
 /// Modbus TCP, así que FactoryNodes, una pantalla u otro PLC se conectan como a uno real. El programa no se edita aquí: se cambia en FactoryNodes y
 /// se vuelve a transferir.
 /// </summary>
-public sealed class SimulatedPlc : IAsyncDisposable
+public sealed class SimulatedPlc : IAsyncDisposable, ILinkNode
 {
     public const string SettingsFile = "softnode.json";
     public const string ProgramFile = "programa.softnodes";
@@ -76,7 +76,20 @@ public sealed class SimulatedPlc : IAsyncDisposable
         Settings = settings;
         Instance = instance;
         _loadedWrite = ProgramFileWrite;
+        // La transferencia de datos entre autómatas (PENDIENTES 167): la tarea de comunicación lee a los remotos con quien diga la aplicación
+        Links = new SoftLinkRunner(link => LinkReaders?.Invoke(link));
+        Links.ProblemChanged += (remote, problem) => Log(problem.Length == 0 ? $"Enlace con {remote}: lee bien." : $"Enlace con {remote}: {problem}.");
+        Instance.Links = Links;
     }
+
+    /// <summary>
+    /// Quién lee los remotos de los enlaces de esta instancia (<see cref="SoftLinkRouter.ReaderFor"/>: otra instancia abierta, en memoria, o un PLC
+    /// por su IP). Lo pone la aplicación; sin él, los enlaces quedan caídos.
+    /// </summary>
+    public Func<Iec61131.Emission.ProgramLink, ISoftLinkReader?>? LinkReaders { get; set; }
+
+    /// <summary>Los enlaces con otros autómatas: su estado por remoto y «cortar enlace».</summary>
+    public SoftLinkRunner Links { get; }
 
     public PlcSettings Settings { get; private set; }
 
@@ -214,6 +227,9 @@ public sealed class SimulatedPlc : IAsyncDisposable
     /// <summary>Cuándo se escribió el programa de la carpeta (null si no hay fichero).</summary>
     public DateTime? ProgramFileWrite => _store.LastWrite(Name, ProgramFile);
 
+    /// <summary>¿Es otro el programa de la carpeta que el cargado? Entonces FactoryNodes transfirió uno nuevo.</summary>
+    public bool ProgramChangedOnDisk => ProgramFileWrite is { } written && written != _loadedWrite;
+
     /// <summary>
     /// Mira el fichero del programa (lo llama el reloj de la ventana). Hasta que no se repite la misma fecha en dos miradas seguidas está
     /// <see cref="ProgramFileState.Changing"/> (puede estar a medio copiar) y no se carga.
@@ -247,7 +263,9 @@ public sealed class SimulatedPlc : IAsyncDisposable
         if (wasOn) await StopServersAsync();
         var report = Instance.Load(package, coldStart);
         (_loadedWrite, _seenWrite) = (written, null);
-        Log(coldStart ? "Programa cargado: arranque en frío." : $"Programa cargado: {report.Kept} variables conservadas, {report.Added} nuevas, {report.Removed} quitadas.");
+        Log(coldStart ? "Programa cargado: arranque en frío."
+            : report.StructureChanged ? $"Programa cargado: {report.Kept} variables conservadas, {report.Added} nuevas, {report.Removed} eliminadas, {report.Changed} con otro tipo."
+            : $"Programa cargado: {report.Kept} variables conservadas.");
         if (wasOn) await StartServersAsync();
         return report;
     }
@@ -289,6 +307,7 @@ public sealed class SimulatedPlc : IAsyncDisposable
             {
                 await modbus.StartAsync();
                 _modbus = modbus;
+                Log($"Modbus TCP en el puerto {modbus.Port}: {modbus.Served} variables.");
             }
             catch (System.Net.Sockets.SocketException e)
             {
@@ -313,7 +332,8 @@ public sealed class SimulatedPlc : IAsyncDisposable
     public IReadOnlyList<string> RecentLog(int lines = 200) =>
         (_store.Read(Name, LogFile) ?? "").Split('\n', StringSplitOptions.RemoveEmptyEntries).TakeLast(lines).Select(l => l.TrimEnd('\r')).ToList();
 
-    private void Log(string message)
+    /// <summary>Una línea en el registro de la instancia (con la fecha) y en <see cref="Logged"/>; SoftNodes Pro anota aquí lo suyo.</summary>
+    public void Log(string message)
     {
         var line = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}  {message}";
         _store.Write(Name, LogFile, (_store.Read(Name, LogFile) ?? "") + line + Environment.NewLine);

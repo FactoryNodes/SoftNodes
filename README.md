@@ -17,6 +17,10 @@ PLC real. Cada instancia es una carpeta, como en PLCSIM Advanced.*
 - **Servers**: OPC UA (one port per instance), EtherNet/IP (explicit messaging, read and write by tag name, like an Omron NJ/NX) and Modbus TCP
   (the Modbus table of the FactoryNodes project: coils, discrete inputs, holding and input registers).
 - **Variables**: see every variable of the program and write one by hand (like forcing an input).
+- **Debugger**: step by step through each section (in neutral ST) and into the blocks, breakpoints (also in RUN), run to cursor, and the snapshot of a
+  fault with its call stack.
+- **Links between PLCs** (FactoryNodes' data transfer): an instance reads the other instances open in the same SoftNodes in memory, and a real
+  PLC by EtherNet/IP at its IP.
 - **Log**: power on, loads, stops, faults and the clients that connect.
 - Six languages: Spanish, Catalan, English, French, German and Portuguese.
 
@@ -39,7 +43,8 @@ dotnet run --project src/apps/SoftNodes.Open
 
 - `src/libs/FactoryNodes.SoftNodes.Core` — the ST interpreter, the program package and the instance (cycle, retentive memory, debugger core).
 - `src/libs/FactoryNodes.SoftNodes.OpcUa`, `.Cip`, `.Modbus` — the three servers.
-- `src/libs/FactoryNodes.SoftNodes.Instances` — an instance folder: settings, power, reload, servers.
+- `src/libs/FactoryNodes.SoftNodes.Instances` — an instance folder: settings, power, reload, servers and the links between PLCs.
+- `src/libs/FactoryNodes.SoftNodes.Debugging` and `FactoryNodes.StEditing` — the debugger and the ST code view.
 - `src/libs/FactoryNodes.SoftNodes.Open.Presentation` — the view models (no WPF).
 - `src/libs/FactoryNodes.Iec61131`, `FactoryNodes.Monitoring`, `FactoryNodes.Monitoring.Cip`, `FactoryNodes.Devices`, `FactoryNodes.Localization` — what
   they need: the library and program model, PLC addressing, the EtherNet/IP codes and the six languages.

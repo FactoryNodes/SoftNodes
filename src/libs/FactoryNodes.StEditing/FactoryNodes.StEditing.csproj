@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Editor de bloques ST (master): el documento .st editable por tablas y código, el analizador del cuerpo, el
+       autocompletado y el coloreado. net8.0, sin UI ni disco: lo pinta cada app (WPF con AvalonEdit; web, Monaco).
+       Lee con el mismo lector que los emisores (FactoryNodes.Iec61131), así hay una sola verdad. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.Iec61131\FactoryNodes.Iec61131.csproj" />
+  </ItemGroup>
+
+</Project>

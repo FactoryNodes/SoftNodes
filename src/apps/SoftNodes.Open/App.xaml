@@ -30,6 +30,7 @@
             <SolidColorBrush x:Key="GoldTintBrush" Color="#28D6A24C" />
             <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
             <local:SvgTextToImageConverter x:Key="SvgImage" />
+            <local:IndentMarginConverter x:Key="IndentMargin" />
 
             <Style TargetType="Window">
                 <Setter Property="FontFamily" Value="Segoe UI" />

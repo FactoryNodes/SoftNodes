@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows.Input;
 using FactoryNodes.Localization;
+using FactoryNodes.SoftNodes.Debugging;
 using FactoryNodes.SoftNodes.Instances;
 using FactoryNodes.SoftNodes.Runtime;
 
@@ -68,6 +69,11 @@ public sealed class SoftNodesOpenViewModel : ObservableObject
     public ICommand RemoveInstanceCommand { get; }
 
     internal IOpenSoftNodesServices Services => _services;
+
+    private SoftLinkRouter? _links;
+
+    /// <summary>Quién lee a cada remoto: otra instancia abierta (en memoria) o el PLC por su IP (PENDIENTES 167).</summary>
+    internal SoftLinkRouter Links => _links ??= new SoftLinkRouter(() => Instances.Select(i => i.Plc), _services.PlcClients);
 
     internal void Changed() => (RemoveInstanceCommand as RelayCommand)?.RaiseCanExecuteChanged();
 
@@ -191,6 +197,7 @@ public sealed class InstanceViewModel : ObservableObject
     {
         Plc = plc;
         _owner = owner;
+        plc.LinkReaders = link => owner.Links.ReaderFor(plc, link);
         PowerCommand = new RelayCommand(() => _ = Do(() => IsOn ? Plc.PowerOffAsync() : Plc.PowerOnAsync()), () => !_busy);
         RunCommand = new RelayCommand(() => Plc.Run(), () => IsOn && !IsRunning);
         StopCommand = new RelayCommand(() => Plc.Stop(), () => IsOn && IsRunning);
@@ -204,10 +211,16 @@ public sealed class InstanceViewModel : ObservableObject
             while (Log.Count > 500) Log.RemoveAt(0);
         });
         plc.Instance.StateChanged += (_, _) => owner.Services.OnUiThread(Refresh);
+        // El depurador (PENDIENTES 87): el mismo que SoftNodes Pro, con el código de cada sección en ST neutro (sin los emisores de FactoryNodes)
+        Debug = new DebugViewModel(plc.Instance, owner.Services.OnUiThread);
+        Debug.SelectedSection = Debug.SectionChoices.FirstOrDefault();   // de entrada, la primera sección del ciclo
         RebuildVariables();
     }
 
     public SimulatedPlc Plc { get; }
+
+    /// <summary>El paso a paso, los puntos de parada y la foto de un fallo.</summary>
+    public DebugViewModel Debug { get; }
 
     public string Name => Plc.Name;
 

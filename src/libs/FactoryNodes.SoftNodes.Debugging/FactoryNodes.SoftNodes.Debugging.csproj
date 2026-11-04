@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- El depurador de SoftNodes (PENDIENTES 87, 159), abierto: el ViewModel del paso a paso, los puntos de parada, la foto de un fallo y el código
+       de cada sección (en ST neutro, NeutralSectionListing; SoftNodes Pro le pasa el del emisor de su PLC). Lo usan los dos SoftNodes. net8.0,
+       sin System.Windows.*. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Core\FactoryNodes.SoftNodes.Core.csproj" />
+    <ProjectReference Include="..\FactoryNodes.StEditing\FactoryNodes.StEditing.csproj" />
+  </ItemGroup>
+
+</Project>

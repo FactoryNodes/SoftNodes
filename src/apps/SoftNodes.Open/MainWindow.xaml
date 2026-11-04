@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:SoftNodesOpen"
         xmlns:p="clr-namespace:FactoryNodes.SoftNodes.Open.Presentation;assembly=FactoryNodes.SoftNodes.Open.Presentation"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
         Title="SoftNodes" Width="1250" Height="800" MinWidth="860" MinHeight="520" Icon="Assets/softnodes.ico" Background="{StaticResource PaperBrush}">
 
     <!-- La ventana del SoftNodes abierto (DataContext = SoftNodesOpenViewModel): a la izquierda las instancias; a la derecha la elegida (botones,
@@ -203,6 +204,126 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>
+                </TabItem>
+                <TabItem Header="{l:T 'Depurador'}" ToolTip="{l:T 'Paso a paso por el código de los bloques, de solo lectura. Los puntos de parada valen también en RUN.'}">
+                    <Grid DataContext="{Binding Debug}" Margin="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+
+                        <WrapPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,6">
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Pausa'}" Command="{Binding PauseCommand}"
+                                    ToolTip="{l:T 'Pausa: con la CPU en RUN, para en la primera sentencia del ciclo siguiente y la enseña aquí. «RUN» sigue.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.Pause}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Parar el ciclo'}" Command="{Binding StopCycleCommand}"
+                                    ToolTip="{l:T 'Parar el ciclo: lo deja a medias sin terminarlo; la memoria queda como está.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.StopCycle}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Paso'}" Command="{Binding StepCommand}" Margin="10,0,6,0"
+                                    ToolTip="{l:T 'Paso: ejecuta la sentencia marcada (una llamada a un bloque, entera) y para en la siguiente. Sin ciclo a medias, empieza uno.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.StepOver}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Entrar en el bloque de función'}" Command="{Binding StepIntoCommand}"
+                                    ToolTip="{l:T 'Entrar en el bloque de función: ejecuta la sentencia marcada y, si llama a un bloque, para en su primera sentencia.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.StepInto}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Salir del bloque de función'}" Command="{Binding StepOutCommand}"
+                                    ToolTip="{l:T 'Salir del bloque de función: ejecuta hasta volver al bloque que llamó a este y espera allí.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.StepOut}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Ciclo'}" Command="{Binding CycleCommand}"
+                                    ToolTip="{l:T 'Ciclo: desde el puntero, termina este ciclo, empieza el siguiente y para al volver a la misma sentencia (si esa sentencia no se ejecuta, en la primera que se ejecute detrás).'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.Cycle}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Ejecutar hasta el cursor'}" Command="{Binding RunToCursorCommand}" Margin="10,0,6,0"
+                                    ToolTip="{l:T 'Ejecutar hasta el cursor: ciclo tras ciclo hasta llegar a la línea del cursor, en la instancia elegida a la derecha.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.RunToCursor}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <Button Style="{StaticResource IconButton}" AutomationProperties.Name="{l:T 'Punto de parada'}" Command="{Binding ToggleBreakpointCommand}"
+                                    ToolTip="{l:T 'Poner o quitar un punto de parada en la línea del cursor (también con un clic en el margen de los números), en la instancia elegida a la derecha. Vale también con la CPU en RUN.'}">
+                                <Image Width="18" Height="18" Source="{Binding Source={x:Static p:OpenIcons.Breakpoint}, Converter={StaticResource SvgImage}}" />
+                            </Button>
+                            <ComboBox ItemsSource="{Binding SectionChoices}" SelectedItem="{Binding SelectedSection}" Width="190" Margin="4,0,0,0" VerticalAlignment="Center"
+                                      MaxDropDownHeight="520"
+                                      ToolTip="{l:T 'Sección del programa, en el orden del ciclo y con su nombre en el PLC. Al final, los bloques de la librería.'}" />
+                            <ComboBox ItemsSource="{Binding TargetChoices}" SelectedItem="{Binding SelectedTarget}" Width="240" Margin="6,0,0,0" VerticalAlignment="Center"
+                                      MaxDropDownHeight="520" IsEditable="True" IsTextSearchEnabled="True"
+                                      ToolTip="{l:T 'Primero, la propia sección (su código en ST). Después, sus instancias por orden alfabético: los puntos de parada paran solo en la elegida. Escribe para buscar.'}" />
+                        </WrapPanel>
+
+                        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,6">
+                            <TextBlock Text="{Binding Status}" Foreground="{StaticResource GrayBrush}" TextWrapping="Wrap" />
+                            <DockPanel Margin="0,4,0,0" Visibility="{Binding HasFault, Converter={StaticResource BoolToVisibility}}">
+                                <Button DockPanel.Dock="Right" Content="{l:T 'Ver el fallo'}" Command="{Binding ShowFaultCommand}"
+                                        ToolTip="{l:T 'La foto del momento del fallo: la línea en rojo, la pila de llamadas y los valores de entonces (la memoria de ahora puede ser otra).'}" />
+                                <TextBlock Text="{Binding FaultText}" Foreground="{StaticResource RedBrush}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </StackPanel>
+
+                        <Border Grid.Row="2" Grid.Column="0" BorderBrush="{StaticResource MistBrush}" BorderThickness="1" Background="White">
+                            <avalon:TextEditor x:Name="Editor" />
+                        </Border>
+
+                        <DockPanel Grid.Row="2" Grid.Column="1" Margin="10,0,0,0">
+                            <StackPanel DockPanel.Dock="Top" Visibility="{Binding ShowingFault, Converter={StaticResource BoolToVisibility}}" Margin="0,0,0,8">
+                                <TextBlock Text="{l:T 'Pila de llamadas del fallo'}" FontWeight="SemiBold" Margin="0,0,0,4" />
+                                <ListBox ItemsSource="{Binding FaultFrames}" SelectedItem="{Binding SelectedFaultFrame}" DisplayMemberPath="Text" MaxHeight="120"
+                                         BorderBrush="{StaticResource MistBrush}" ToolTip="{l:T 'El primero es el bloque donde falló; elige otro para ver su código y sus valores de entonces.'}" />
+                            </StackPanel>
+                            <StackPanel DockPanel.Dock="Bottom" Margin="0,8,0,0">
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Right" Content="{l:T 'Quitar todos'}" Padding="8,2" Command="{Binding RemoveAllBreakpointsCommand}" />
+                                    <TextBlock Text="{l:T 'Puntos de parada'}" FontWeight="SemiBold" VerticalAlignment="Center" />
+                                </DockPanel>
+                                <ItemsControl ItemsSource="{Binding BreakpointRows}" Margin="0,4,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel Margin="0,1">
+                                                <Button DockPanel.Dock="Right" Content="×" Padding="6,0" Margin="4,0,0,0" Command="{Binding RemoveCommand}" ToolTip="{l:T 'Quitar este punto de parada'}" />
+                                                <Ellipse Width="9" Height="9" Fill="Firebrick" Margin="0,0,6,0" VerticalAlignment="Center" />
+                                                <TextBlock Text="{Binding Text}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" ToolTip="{Binding Text}" />
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                            <TextBlock DockPanel.Dock="Top" FontWeight="SemiBold" Margin="0,0,0,4" TextTrimming="CharacterEllipsis"
+                                       ToolTip="{l:T 'Las variables del bloque donde está el puntero, con su valor: en dorado, las que cambió el último paso.'}">
+                                <Run Text="{l:T 'Variables '}" /><Run Text="{Binding VariablesTitle, Mode=OneWay}" Foreground="{StaticResource GrayBrush}" FontWeight="Normal" />
+                            </TextBlock>
+                            <ListBox ItemsSource="{Binding Variables}" BorderBrush="{StaticResource MistBrush}" Background="White"
+                                     VirtualizingPanel.IsVirtualizing="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <DockPanel Margin="{Binding Indent, Converter={StaticResource IndentMargin}}">
+                                            <Button DockPanel.Dock="Left" Content="{Binding Glyph}" Command="{Binding ToggleCommand}" Width="16" Padding="0" Margin="0,0,2,0"
+                                                    BorderThickness="0" Background="Transparent" Visibility="{Binding CanExpand, Converter={StaticResource BoolToVisibility}}" />
+                                            <TextBlock DockPanel.Dock="Right" Text="{Binding Value}" FontFamily="Consolas" Margin="8,0,0,0" ToolTip="{Binding Type}">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Changed}" Value="True">
+                                                                <Setter Property="Background" Value="{StaticResource GoldTintBrush}" />
+                                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                            <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" ToolTip="{Binding Path}" />
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="{l:T 'Registro'}">
                     <ListBox ItemsSource="{Binding Log}" BorderThickness="0" Margin="6" FontFamily="Consolas" FontSize="12"

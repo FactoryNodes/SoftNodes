@@ -37,6 +37,7 @@ public sealed class OpenSoftNodesTests : IDisposable
     private sealed class Services(string root) : IOpenSoftNodesServices
     {
         public IInstanceStore Store { get; } = new Store(root);
+        public Func<IPlcAddressing, IPlcConnection>? PlcClients => null;
         public (byte[] Bytes, string FileName)? ChooseProgram() => null;
         public bool Confirm(string message) => true;
         public void OnUiThread(Action action) => action();

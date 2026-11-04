@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Threading;
 using FactoryNodes.SoftNodes.Open.Presentation;
+using SoftNodes.Controls;
 
 namespace SoftNodesOpen;
 
@@ -10,6 +11,7 @@ public partial class MainWindow : Window
 {
     private readonly SoftNodesOpenViewModel _model;
     private readonly DispatcherTimer _timer = new() { Interval = TimeSpan.FromMilliseconds(500) };
+    private readonly DebugEditorAdapter _adapter;
     private bool _closing;
 
     public MainWindow(WpfServices services)
@@ -18,6 +20,10 @@ public partial class MainWindow : Window
         services.Owner = this;
         _model = new SoftNodesOpenViewModel(services);
         DataContext = _model;
+        // El editor del depurador enseña el de la instancia elegida
+        _adapter = new DebugEditorAdapter(Editor);
+        _adapter.Bind(_model.Selected?.Debug);
+        _model.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(SoftNodesOpenViewModel.Selected)) _adapter.Bind(_model.Selected?.Debug); };
         _timer.Tick += (_, _) => _model.Tick();
         _timer.Start();
     }

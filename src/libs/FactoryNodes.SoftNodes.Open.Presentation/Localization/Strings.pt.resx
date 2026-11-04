@@ -173,4 +173,121 @@
   <data name="«{0}» no vale para un {1}." xml:space="preserve">
     <value>«{0}» não é válido para um {1}.</value>
   </data>
+  <data name="Distinguir mayúsculas y minúsculas" xml:space="preserve">
+    <value>Diferenciar maiúsculas e minúsculas</value>
+  </data>
+  <data name="Solo palabras completas" xml:space="preserve">
+    <value>Apenas palavras inteiras</value>
+  </data>
+  <data name="Expresión regular" xml:space="preserve">
+    <value>Expressão regular</value>
+  </data>
+  <data name="Buscar siguiente (F3)" xml:space="preserve">
+    <value>Procurar seguinte (F3)</value>
+  </data>
+  <data name="Buscar anterior (Mayús+F3)" xml:space="preserve">
+    <value>Procurar anterior (Shift+F3)</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Erro:</value>
+  </data>
+  <data name="No se ha encontrado" xml:space="preserve">
+    <value>Não encontrado</value>
+  </data>
+  <data name="Ver espacios y tabuladores" xml:space="preserve">
+    <value>Ver espaços e tabulações</value>
+  </data>
+  <data name="Regla vertical en la columna 120" xml:space="preserve">
+    <value>Régua vertical na coluna 120</value>
+  </data>
+  <data name="Tamaño de letra normal (Ctrl+0)" xml:space="preserve">
+    <value>Tamanho de letra normal (Ctrl+0)</value>
+  </data>
+  <data name="Depurador" xml:space="preserve">
+    <value>Depurador</value>
+  </data>
+  <data name="Paso a paso por el código de los bloques, de solo lectura. Los puntos de parada valen también en RUN." xml:space="preserve">
+    <value>Passo a passo pelo código dos blocos, só de leitura. Os pontos de paragem valem também em RUN.</value>
+  </data>
+  <data name="Pausa" xml:space="preserve">
+    <value>Pausa</value>
+  </data>
+  <data name="Pausa: con la CPU en RUN, para en la primera sentencia del ciclo siguiente y la enseña aquí. «RUN» sigue." xml:space="preserve">
+    <value>Pausa: com a CPU em RUN, para na primeira instrução do ciclo seguinte e mostra-a aqui. «RUN» continua.</value>
+  </data>
+  <data name="Parar el ciclo" xml:space="preserve">
+    <value>Parar o ciclo</value>
+  </data>
+  <data name="Parar el ciclo: lo deja a medias sin terminarlo; la memoria queda como está." xml:space="preserve">
+    <value>Parar o ciclo: deixa-o a meio sem o terminar; a memória fica como está.</value>
+  </data>
+  <data name="Paso" xml:space="preserve">
+    <value>Passo</value>
+  </data>
+  <data name="Paso: ejecuta la sentencia marcada (una llamada a un bloque, entera) y para en la siguiente. Sin ciclo a medias, empieza uno." xml:space="preserve">
+    <value>Passo: executa a instrução marcada (uma chamada a um bloco, inteira) e para na seguinte. Sem ciclo a meio, começa um.</value>
+  </data>
+  <data name="Entrar en el bloque de función" xml:space="preserve">
+    <value>Entrar no bloco de função</value>
+  </data>
+  <data name="Entrar en el bloque de función: ejecuta la sentencia marcada y, si llama a un bloque, para en su primera sentencia." xml:space="preserve">
+    <value>Entrar no bloco de função: executa a instrução marcada e, se chamar um bloco, para na sua primeira instrução.</value>
+  </data>
+  <data name="Salir del bloque de función" xml:space="preserve">
+    <value>Sair do bloco de função</value>
+  </data>
+  <data name="Salir del bloque de función: ejecuta hasta volver al bloque que llamó a este y espera allí." xml:space="preserve">
+    <value>Sair do bloco de função: executa até voltar ao bloco que chamou este e espera aí.</value>
+  </data>
+  <data name="Ciclo" xml:space="preserve">
+    <value>Ciclo</value>
+  </data>
+  <data name="Ciclo: desde el puntero, termina este ciclo, empieza el siguiente y para al volver a la misma sentencia (si esa sentencia no se ejecuta, en la primera que se ejecute detrás)." xml:space="preserve">
+    <value>Ciclo: a partir do ponteiro, termina este ciclo, começa o seguinte e para ao voltar à mesma instrução (se essa instrução não for executada, na primeira que se executar a seguir).</value>
+  </data>
+  <data name="Ejecutar hasta el cursor" xml:space="preserve">
+    <value>Executar até ao cursor</value>
+  </data>
+  <data name="Ejecutar hasta el cursor: ciclo tras ciclo hasta llegar a la línea del cursor, en la instancia elegida a la derecha." xml:space="preserve">
+    <value>Executar até ao cursor: ciclo após ciclo até chegar à linha do cursor, na instância escolhida à direita.</value>
+  </data>
+  <data name="Punto de parada" xml:space="preserve">
+    <value>Ponto de paragem</value>
+  </data>
+  <data name="Poner o quitar un punto de parada en la línea del cursor (también con un clic en el margen de los números), en la instancia elegida a la derecha. Vale también con la CPU en RUN." xml:space="preserve">
+    <value>Pôr ou tirar um ponto de paragem na linha do cursor (também com um clique na margem dos números), na instância escolhida à direita. Vale também com a CPU em RUN.</value>
+  </data>
+  <data name="Sección del programa, en el orden del ciclo y con su nombre en el PLC. Al final, los bloques de la librería." xml:space="preserve">
+    <value>Secção do programa, pela ordem do ciclo e com o seu nome no PLC. No fim, os blocos da biblioteca.</value>
+  </data>
+  <data name="Ver el fallo" xml:space="preserve">
+    <value>Ver a falha</value>
+  </data>
+  <data name="La foto del momento del fallo: la línea en rojo, la pila de llamadas y los valores de entonces (la memoria de ahora puede ser otra)." xml:space="preserve">
+    <value>A fotografia do momento da falha: a linha a vermelho, a pilha de chamadas e os valores de então (a memória atual pode ser outra).</value>
+  </data>
+  <data name="Pila de llamadas del fallo" xml:space="preserve">
+    <value>Pilha de chamadas da falha</value>
+  </data>
+  <data name="El primero es el bloque donde falló; elige otro para ver su código y sus valores de entonces." xml:space="preserve">
+    <value>O primeiro é o bloco onde falhou; escolhe outro para ver o seu código e os seus valores de então.</value>
+  </data>
+  <data name="Quitar todos" xml:space="preserve">
+    <value>Remover todos</value>
+  </data>
+  <data name="Puntos de parada" xml:space="preserve">
+    <value>Pontos de paragem</value>
+  </data>
+  <data name="Quitar este punto de parada" xml:space="preserve">
+    <value>Remover este ponto de paragem</value>
+  </data>
+  <data name="Variables " xml:space="preserve">
+    <value>Variáveis </value>
+  </data>
+  <data name="Primero, la propia sección (su código en ST). Después, sus instancias por orden alfabético: los puntos de parada paran solo en la elegida. Escribe para buscar." xml:space="preserve">
+    <value>Primeiro, a própria secção (o seu código em ST). Depois, as suas instâncias por ordem alfabética: os pontos de paragem só param na escolhida. Escreve para procurar.</value>
+  </data>
+  <data name="Las variables del bloque donde está el puntero, con su valor: en dorado, las que cambió el último paso." xml:space="preserve">
+    <value>As variáveis do bloco onde está o ponteiro, com o seu valor: a dourado, as que o último passo alterou.</value>
+  </data>
 </root>

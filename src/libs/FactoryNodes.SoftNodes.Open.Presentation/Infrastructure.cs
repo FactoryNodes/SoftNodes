@@ -59,6 +59,14 @@ public static class OpenIcons
     public static string Load => Get("load");
     public static string Reload => Get("reload");
     public static string ColdStart => Get("cold-start");
+    public static string Pause => Get("pause");
+    public static string StopCycle => Get("stop-cycle");
+    public static string StepOver => Get("step-over");
+    public static string StepInto => Get("step-into");
+    public static string StepOut => Get("step-out");
+    public static string Cycle => Get("cycle");
+    public static string RunToCursor => Get("run-to-cursor");
+    public static string Breakpoint => Get("breakpoint");
 
     private static readonly Assembly Assembly = typeof(OpenIcons).Assembly;
     private static readonly ConcurrentDictionary<string, string> Cache = new(StringComparer.Ordinal);
@@ -75,6 +83,9 @@ public static class OpenIcons
 public interface IOpenSoftNodesServices
 {
     IInstanceStore Store { get; }
+
+    /// <summary>El cliente para leer a un PLC real por los enlaces entre autómatas (EtherNet/IP); null = solo entre instancias abiertas.</summary>
+    Func<FactoryNodes.Iec61131.Emission.IPlcAddressing, FactoryNodes.Monitoring.IPlcConnection>? PlcClients { get; }
 
     /// <summary>Elegir un programa <c>.softnodes</c>; devuelve sus bytes y el nombre del fichero, o null si se cancela.</summary>
     (byte[] Bytes, string FileName)? ChooseProgram();
