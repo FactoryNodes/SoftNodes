@@ -1,0 +1,140 @@
+<Application x:Class="SoftNodesOpen.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SoftNodesOpen"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Los colores de FactoryNodes (docs/STYLE.md): dorado = acción principal o seleccionado, teal = bien / activo; nunca decorativos. -->
+            <Color x:Key="InkColor">#2B2140</Color>
+            <Color x:Key="PetalColor">#4A3B78</Color>
+            <Color x:Key="GoldColor">#D6A24C</Color>
+            <Color x:Key="TealColor">#2F7A6B</Color>
+            <Color x:Key="PaperColor">#F6F3EE</Color>
+            <Color x:Key="MistColor">#DCD6E8</Color>
+            <Color x:Key="RedColor">#A32D2D</Color>
+            <Color x:Key="AmberColor">#B8860B</Color>
+            <Color x:Key="GrayColor">#888780</Color>
+            <Color x:Key="OnGoldColor">#412402</Color>
+            <SolidColorBrush x:Key="InkBrush" Color="{StaticResource InkColor}" />
+            <SolidColorBrush x:Key="PetalBrush" Color="{StaticResource PetalColor}" />
+            <SolidColorBrush x:Key="GoldBrush" Color="{StaticResource GoldColor}" />
+            <SolidColorBrush x:Key="TealBrush" Color="{StaticResource TealColor}" />
+            <SolidColorBrush x:Key="PaperBrush" Color="{StaticResource PaperColor}" />
+            <SolidColorBrush x:Key="MistBrush" Color="{StaticResource MistColor}" />
+            <SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}" />
+            <SolidColorBrush x:Key="AmberBrush" Color="{StaticResource AmberColor}" />
+            <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}" />
+            <SolidColorBrush x:Key="OnGoldBrush" Color="{StaticResource OnGoldColor}" />
+            <SolidColorBrush x:Key="WhiteBrush" Color="White" />
+            <SolidColorBrush x:Key="GoldTintBrush" Color="#28D6A24C" />
+            <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+            <local:SvgTextToImageConverter x:Key="SvgImage" />
+
+            <Style TargetType="Window">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Foreground" Value="{StaticResource InkBrush}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="Padding" Value="12,5" />
+                <Setter Property="Margin" Value="0,0,6,0" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource MistBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource InkBrush}" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Frame" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="7" Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Frame" Property="BorderBrush" Value="{StaticResource PetalBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="Frame" Property="Opacity" Value="0.45" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource GoldBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource GoldBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource OnGoldBrush}" />
+            </Style>
+
+            <!-- Botón de icono: cuadrado, el dibujo en el centro, el texto en el tooltip (los botones nuevos son SVG + tooltip) -->
+            <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Padding" Value="7" />
+                <Setter Property="Width" Value="36" />
+                <Setter Property="Height" Value="34" />
+                <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+            </Style>
+            <Style x:Key="PrimaryIconButton" TargetType="Button" BasedOn="{StaticResource IconButton}">
+                <Setter Property="Background" Value="{StaticResource GoldBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource GoldBrush}" />
+            </Style>
+
+            <Style TargetType="ToolTip">
+                <Setter Property="MaxWidth" Value="460" />
+                <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Las etiquetas de los campos del formulario, en gris -->
+            <Style x:Key="FieldLabel" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="Margin" Value="0,8,0,2" />
+            </Style>
+            <Style x:Key="SectionTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,14,0,2" />
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="4,3" />
+                <Setter Property="BorderBrush" Value="{StaticResource MistBrush}" />
+            </Style>
+            <Style x:Key="CellBox" TargetType="TextBox">
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
+            <Style TargetType="DataGrid">
+                <Setter Property="AutoGenerateColumns" Value="False" />
+                <Setter Property="CanUserAddRows" Value="False" />
+                <Setter Property="CanUserDeleteRows" Value="False" />
+                <Setter Property="SelectionMode" Value="Single" />
+                <Setter Property="HeadersVisibility" Value="Column" />
+                <Setter Property="GridLinesVisibility" Value="Horizontal" />
+                <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource MistBrush}" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource MistBrush}" />
+                <Setter Property="RowHeight" Value="28" />
+                <Setter Property="EnableRowVirtualization" Value="True" />
+            </Style>
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="{StaticResource PaperBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="Padding" Value="6,4" />
+                <Setter Property="BorderBrush" Value="{StaticResource MistBrush}" />
+                <Setter Property="BorderThickness" Value="0,0,1,1" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

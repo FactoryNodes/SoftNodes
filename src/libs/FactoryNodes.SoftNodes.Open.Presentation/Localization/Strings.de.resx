@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos traducidos (PENDIENTES 82): la clave (name) es el texto en castellano tal como sale en pantalla. Lo genera y
+     lo mantiene Claude con el glosario de docs/i18n/; lo que falta sale en castellano. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nueva instancia…: un PLC simulado con el programa que guarda FactoryNodes («Exportar a PLC» ▸ SoftNodes, .softnodes)" xml:space="preserve">
+    <value>Neue Instanz…: eine simulierte SPS mit dem Programm, das FactoryNodes speichert („An SPS exportieren“ ▸ SoftNodes, .softnodes)</value>
+  </data>
+  <data name="Borrar la instancia elegida y su carpeta (apagada)" xml:space="preserve">
+    <value>Die gewählte Instanz und ihren Ordner löschen (ausgeschaltet)</value>
+  </data>
+  <data name="Idioma del programa (se vuelve a abrir)" xml:space="preserve">
+    <value>Sprache des Programms (es wird neu geöffnet)</value>
+  </data>
+  <data name="El PLC simulado de FactoryNodes: ejecuta el programa y lo sirve por OPC UA, EtherNet/IP y Modbus TCP, como un PLC real." xml:space="preserve">
+    <value>Die simulierte SPS von FactoryNodes: führt das Programm aus und stellt es über OPC UA, EtherNet/IP und Modbus TCP bereit, wie eine echte SPS.</value>
+  </data>
+  <data name="RUN: el PLC ejecuta el programa ciclo a ciclo" xml:space="preserve">
+    <value>RUN: die SPS führt das Programm Zyklus für Zyklus aus</value>
+  </data>
+  <data name="STOP: el PLC deja de ejecutar; la memoria se conserva" xml:space="preserve">
+    <value>STOP: die SPS hört auf; der Speicher bleibt erhalten</value>
+  </data>
+  <data name="Recargar el programa de la carpeta (el que acaba de transferir FactoryNodes), conservando lo que sigue igual" xml:space="preserve">
+    <value>Das Programm im Ordner neu laden (das FactoryNodes gerade übertragen hat) und behalten, was gleich bleibt</value>
+  </data>
+  <data name="Arranque en frío: como recargar, pero todas las variables vuelven a su valor inicial" xml:space="preserve">
+    <value>Kaltstart: wie neu laden, aber alle Variablen kehren zu ihrem Anfangswert zurück</value>
+  </data>
+  <data name="Cargar otro programa (.softnodes) en esta instancia" xml:space="preserve">
+    <value>Ein anderes Programm (.softnodes) in diese Instanz laden</value>
+  </data>
+  <data name="Las direcciones a las que se conectan FactoryNodes, una pantalla u otro PLC (desde otro equipo, con la IP de este)" xml:space="preserve">
+    <value>Die Adressen, mit denen sich FactoryNodes, ein Bediengerät oder eine andere SPS verbinden (von einem anderen Rechner mit der IP dieses Rechners)</value>
+  </data>
+  <data name="Perfil" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Qué PLC simula: «TIA» (un S7-1500) o «Sysmac» (un NX/NJ). Elige cómo se nombran las variables por OPC UA. Solo con la instancia apagada." xml:space="preserve">
+    <value>Welche SPS simuliert wird: „TIA“ (eine S7-1500) oder „Sysmac“ (eine NX/NJ). Legt fest, wie die Variablen über OPC UA heißen. Nur bei ausgeschalteter Instanz.</value>
+  </data>
+  <data name="Puerto OPC UA" xml:space="preserve">
+    <value>OPC-UA-Port</value>
+  </data>
+  <data name="Puerto EtherNet/IP" xml:space="preserve">
+    <value>EtherNet/IP-Port</value>
+  </data>
+  <data name="44818 es el de serie; cada instancia el suyo; 0 = sin servidor EtherNet/IP" xml:space="preserve">
+    <value>44818 ist der Standard; jede Instanz ihren eigenen; 0 = kein EtherNet/IP-Server</value>
+  </data>
+  <data name="Puerto Modbus TCP" xml:space="preserve">
+    <value>Modbus-TCP-Port</value>
+  </data>
+  <data name="502 es el de serie; 0 = sin servidor Modbus. Solo arranca si el programa trae su tabla Modbus." xml:space="preserve">
+    <value>502 ist der Standard; 0 = kein Modbus-Server. Startet nur, wenn das Programm seine Modbus-Tabelle mitbringt.</value>
+  </data>
+  <data name="Ciclo (ms)" xml:space="preserve">
+    <value>Zyklus (ms)</value>
+  </data>
+  <data name="Lo que avanza el reloj del PLC en cada ciclo" xml:space="preserve">
+    <value>Wie weit die SPS-Uhr pro Zyklus vorrückt</value>
+  </data>
+  <data name="Velocidad" xml:space="preserve">
+    <value>Geschwindigkeit</value>
+  </data>
+  <data name="1 = tiempo real; 10 = el reloj del PLC va diez veces más deprisa" xml:space="preserve">
+    <value>1 = Echtzeit; 10 = die SPS-Uhr läuft zehnmal schneller</value>
+  </data>
+  <data name="RUN al encender" xml:space="preserve">
+    <value>RUN beim Einschalten</value>
+  </data>
+  <data name="Recargar solo" xml:space="preserve">
+    <value>Automatisch neu laden</value>
+  </data>
+  <data name="Cuando FactoryNodes deja un programa nuevo en la carpeta, se carga solo (como una descarga: se conservan los valores de lo que sigue igual)" xml:space="preserve">
+    <value>Wenn FactoryNodes ein neues Programm im Ordner ablegt, wird es automatisch geladen (wie ein Download: die Werte dessen, was gleich bleibt, bleiben erhalten)</value>
+  </data>
+  <data name="Variables" xml:space="preserve">
+    <value>Variablen</value>
+  </data>
+  <data name="Buscar una variable por su nombre (Motor1, Status.Run, io_)" xml:space="preserve">
+    <value>Eine Variable nach ihrem Namen suchen (Motor1, Status.Run, io_)</value>
+  </data>
+  <data name="Variable" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="Tipo" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Valor" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="Escribe un valor y pulsa Tab para ponerlo en el PLC (como forzar una entrada: el programa puede volver a escribirlo)" xml:space="preserve">
+    <value>Geben Sie einen Wert ein und drücken Sie Tab, um ihn in die SPS zu schreiben (wie einen Eingang forcieren: das Programm kann ihn wieder überschreiben)</value>
+  </data>
+  <data name="Registro" xml:space="preserve">
+    <value>Protokoll</value>
+  </data>
+  <data name="Encendido, cargas, paros, fallos y los clientes que se conectan (también en registro.log de la carpeta de la instancia)" xml:space="preserve">
+    <value>Einschalten, Ladevorgänge, Stopps, Fehler und die Clients, die sich verbinden (auch in registro.log im Ordner der Instanz)</value>
+  </data>
+  <data name="Nueva instancia…" xml:space="preserve">
+    <value>Neue Instanz…</value>
+  </data>
+  <data name="Programas de SoftNodes (*.softnodes)" xml:space="preserve">
+    <value>SoftNodes-Programme (*.softnodes)</value>
+  </data>
+  <data name="Hay instancias encendidas: al cerrar se apagan (y se guarda su retentiva). ¿Cerrar?" xml:space="preserve">
+    <value>Es sind Instanzen eingeschaltet: beim Schließen werden sie ausgeschaltet (und ihr remanenter Speicher gespeichert). Schließen?</value>
+  </data>
+  <data name="No hay instancias: crea una con el programa que guarda FactoryNodes («Exportar a PLC» ▸ SoftNodes)." xml:space="preserve">
+    <value>Es gibt keine Instanzen: Erstellen Sie eine mit dem Programm, das FactoryNodes speichert („An SPS exportieren“ ▸ SoftNodes).</value>
+  </data>
+  <data name="No se pudo abrir la instancia «{0}»: {1}" xml:space="preserve">
+    <value>Die Instanz „{0}“ konnte nicht geöffnet werden: {1}</value>
+  </data>
+  <data name="No se pudo crear la instancia: {0}" xml:space="preserve">
+    <value>Die Instanz konnte nicht erstellt werden: {0}</value>
+  </data>
+  <data name="Instancia «{0}» creada con el programa «{1}». Enciéndela para publicarla." xml:space="preserve">
+    <value>Instanz „{0}“ mit dem Programm „{1}“ erstellt. Schalten Sie sie ein, um sie zu veröffentlichen.</value>
+  </data>
+  <data name="¿Borrar la instancia «{0}» y su carpeta (programa, retentiva y registro)?" xml:space="preserve">
+    <value>Instanz „{0}“ und ihren Ordner löschen (Programm, remanenter Speicher und Protokoll)?</value>
+  </data>
+  <data name="Instancia «{0}» borrada." xml:space="preserve">
+    <value>Instanz „{0}“ gelöscht.</value>
+  </data>
+  <data name="Para cambiar de idioma el programa se vuelve a abrir y se apagan las instancias. ¿Seguir?" xml:space="preserve">
+    <value>Zum Sprachwechsel wird das Programm neu geöffnet und die Instanzen werden ausgeschaltet. Fortfahren?</value>
+  </data>
+  <data name="Apagada" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="STOP por fallo: {0}" xml:space="preserve">
+    <value>STOP wegen Fehler: {0}</value>
+  </data>
+  <data name="Programa «{0}» (autómata {1}) · {2} ciclos" xml:space="preserve">
+    <value>Programm „{0}“ (SPS {1}) · {2} Zyklen</value>
+  </data>
+  <data name="Programa «{0}» · {1} ciclos" xml:space="preserve">
+    <value>Programm „{0}“ · {1} Zyklen</value>
+  </data>
+  <data name="¿Arranque en frío? Todas las variables vuelven a su valor inicial, también la retentiva." xml:space="preserve">
+    <value>Kaltstart? Alle Variablen kehren zu ihrem Anfangswert zurück, auch die remanenten.</value>
+  </data>
+  <data name="Apagar: para el PLC, guarda la memoria retentiva y cierra los servidores." xml:space="preserve">
+    <value>Ausschalten: stoppt die SPS, speichert den remanenten Speicher und schließt die Server.</value>
+  </data>
+  <data name="Encender: servidores OPC UA, EtherNet/IP y Modbus, la retentiva de la última vez y RUN si está marcado." xml:space="preserve">
+    <value>Einschalten: OPC-UA-, EtherNet/IP- und Modbus-Server, der remanente Speicher vom letzten Mal und RUN, wenn markiert.</value>
+  </data>
+  <data name="El programa no tiene variables." xml:space="preserve">
+    <value>Das Programm hat keine Variablen.</value>
+  </data>
+  <data name="{0} de {1} variables (escribe para buscar)" xml:space="preserve">
+    <value>{0} von {1} Variablen (zum Suchen tippen)</value>
+  </data>
+  <data name="{0} variables" xml:space="preserve">
+    <value>{0} Variablen</value>
+  </data>
+  <data name="«{0}» no vale para un {1}." xml:space="preserve">
+    <value>„{0}“ ist für einen {1} ungültig.</value>
+  </data>
+</root>

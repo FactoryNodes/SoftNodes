@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Servidor OPC UA de una instancia de SoftNodes (docs/PENDIENTES.md 49): publica la memoria del PLC simulado con el
+       direccionamiento de la plataforma elegida (IPlcAddressing). Servidor de la OPC Foundation (UA-.NETStandard, MIT),
+       la misma versión que el cliente de FactoryNodes.Monitoring.OpcUa. net8.0, sin UI. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server" Version="1.5.378.176" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Core\FactoryNodes.SoftNodes.Core.csproj" />
+  </ItemGroup>
+
+</Project>

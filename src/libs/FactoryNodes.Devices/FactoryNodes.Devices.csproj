@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Dispositivos Modbus TCP de la planta (autor, 2026-10-13): catálogo por marca y modelo (JSON), lectura de sus
+       parámetros, copias, restaurar en un equipo nuevo y pasarela al PLC. Sin red: el cliente Modbus es una interfaz. -->
+
+</Project>

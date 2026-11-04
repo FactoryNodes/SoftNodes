@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- SoftNodes: intérprete de ST estándar IEC 61131-3 (PLC simulado, docs/PENDIENTES.md 49). net8.0, sin UI, sin
+       disco: recibe la librería maestra ya leída y ejecuta sus bloques paso a paso. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.Iec61131\FactoryNodes.Iec61131.csproj" />
+  </ItemGroup>
+
+</Project>

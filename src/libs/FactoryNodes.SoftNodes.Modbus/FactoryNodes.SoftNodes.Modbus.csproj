@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Servidor Modbus TCP de una instancia de SoftNodes (docs/PENDIENTES.md 199): sirve las variables del mapa Modbus del programa
+       (ProgramModel.Modbus) en bobinas, entradas discretas, holding e input registers, para que un SCADA, un HMI u otro PLC las lean y
+       escriban. C# puro, net8.0, sin UI. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Core\FactoryNodes.SoftNodes.Core.csproj" />
+  </ItemGroup>
+
+</Project>

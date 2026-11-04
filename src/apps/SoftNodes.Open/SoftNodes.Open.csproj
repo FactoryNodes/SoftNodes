@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- SoftNodes (el abierto, PENDIENTES 159, AGPL-3.0): el PLC simulado sin lo de SoftNodes Pro. Ejecuta el programa que transfiere FactoryNodes y lo
+       sirve por OPC UA, EtherNet/IP y Modbus TCP. Solo UI y composición: la lógica en src/libs/FactoryNodes.SoftNodes.Open.Presentation y
+       FactoryNodes.SoftNodes.Instances. Va con el Pro en el mismo instalador (SoftNodes.exe es el Pro). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>SoftNodes.Open</AssemblyName>
+    <RootNamespace>SoftNodesOpen</RootNamespace>
+    <ApplicationIcon>Assets/softnodes.ico</ApplicationIcon>
+    <Product>SoftNodes</Product>
+    <AssemblyTitle>SoftNodes</AssemblyTitle>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\build\AppVersion.props" Condition="Exists('..\..\..\build\AppVersion.props')" />
+
+  <ItemGroup>
+    <!-- Pinta los iconos SVG de los botones (BSD-3-Clause) -->
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\FactoryNodes.SoftNodes.Open.Presentation\FactoryNodes.SoftNodes.Open.Presentation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\softnodes.ico" />
+  </ItemGroup>
+
+</Project>

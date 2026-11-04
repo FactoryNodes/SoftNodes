@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Una instancia del SoftNodes abierto (PENDIENTES 159, AGPL-3.0): su carpeta, encender y apagar, RUN/STOP, recargar el programa, la retentiva y
+       los servidores OPC UA, EtherNet/IP y Modbus TCP. Solo piezas abiertas: nada de la planta, el banco, la IA ni los emisores de FactoryNodes.
+       C# puro, net8.0, sin UI ni disco (la carpeta es una interfaz). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Core\FactoryNodes.SoftNodes.Core.csproj" />
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.OpcUa\FactoryNodes.SoftNodes.OpcUa.csproj" />
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Cip\FactoryNodes.SoftNodes.Cip.csproj" />
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Modbus\FactoryNodes.SoftNodes.Modbus.csproj" />
+  </ItemGroup>
+
+</Project>

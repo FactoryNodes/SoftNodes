@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Contratos de monitorización de un PLC (docs/design/MONITORING.md): rutas, conexión, lectura, escritura,
+       suscripciones e instantánea. Sin protocolo: OPC-UA vive en FactoryNodes.Monitoring.OpcUa. net8.0, sin UI, sin disco. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

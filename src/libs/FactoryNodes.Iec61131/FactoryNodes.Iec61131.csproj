@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- AST y lector de la librería maestra (ST estándar IEC 61131-3 con directivas ///) y validación de sus
+       convenciones. net8.0, sin UI, sin disco: recibe el texto de cada fichero y devuelve el modelo y los
+       diagnósticos. Reglas: docs/MASTER_LIBRARY_CONVENTIONS.md. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

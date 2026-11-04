@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos traducidos (PENDIENTES 82): la clave (name) es el texto en castellano tal como sale en pantalla. Lo genera y
+     lo mantiene Claude con el glosario de docs/i18n/; lo que falta sale en castellano. -->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nueva instancia…: un PLC simulado con el programa que guarda FactoryNodes («Exportar a PLC» ▸ SoftNodes, .softnodes)" xml:space="preserve">
+    <value>Nova instància…: un PLC simulat amb el programa que desa FactoryNodes («Exportar a PLC» ▸ SoftNodes, .softnodes)</value>
+  </data>
+  <data name="Borrar la instancia elegida y su carpeta (apagada)" xml:space="preserve">
+    <value>Esborrar la instància triada i la seva carpeta (apagada)</value>
+  </data>
+  <data name="Idioma del programa (se vuelve a abrir)" xml:space="preserve">
+    <value>Idioma del programa (es torna a obrir)</value>
+  </data>
+  <data name="El PLC simulado de FactoryNodes: ejecuta el programa y lo sirve por OPC UA, EtherNet/IP y Modbus TCP, como un PLC real." xml:space="preserve">
+    <value>El PLC simulat de FactoryNodes: executa el programa i el serveix per OPC UA, EtherNet/IP i Modbus TCP, com un PLC real.</value>
+  </data>
+  <data name="RUN: el PLC ejecuta el programa ciclo a ciclo" xml:space="preserve">
+    <value>RUN: el PLC executa el programa cicle a cicle</value>
+  </data>
+  <data name="STOP: el PLC deja de ejecutar; la memoria se conserva" xml:space="preserve">
+    <value>STOP: el PLC deixa d'executar; la memòria es conserva</value>
+  </data>
+  <data name="Recargar el programa de la carpeta (el que acaba de transferir FactoryNodes), conservando lo que sigue igual" xml:space="preserve">
+    <value>Recarregar el programa de la carpeta (el que acaba de transferir FactoryNodes), conservant el que continua igual</value>
+  </data>
+  <data name="Arranque en frío: como recargar, pero todas las variables vuelven a su valor inicial" xml:space="preserve">
+    <value>Arrencada en fred: com recarregar, però totes les variables tornen al valor inicial</value>
+  </data>
+  <data name="Cargar otro programa (.softnodes) en esta instancia" xml:space="preserve">
+    <value>Carregar un altre programa (.softnodes) en aquesta instància</value>
+  </data>
+  <data name="Las direcciones a las que se conectan FactoryNodes, una pantalla u otro PLC (desde otro equipo, con la IP de este)" xml:space="preserve">
+    <value>Les adreces a les quals es connecten FactoryNodes, una pantalla o un altre PLC (des d'un altre equip, amb la IP d'aquest)</value>
+  </data>
+  <data name="Perfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="Qué PLC simula: «TIA» (un S7-1500) o «Sysmac» (un NX/NJ). Elige cómo se nombran las variables por OPC UA. Solo con la instancia apagada." xml:space="preserve">
+    <value>Quin PLC simula: «TIA» (un S7-1500) o «Sysmac» (un NX/NJ). Tria com s'anomenen les variables per OPC UA. Només amb la instància apagada.</value>
+  </data>
+  <data name="Puerto OPC UA" xml:space="preserve">
+    <value>Port OPC UA</value>
+  </data>
+  <data name="Puerto EtherNet/IP" xml:space="preserve">
+    <value>Port EtherNet/IP</value>
+  </data>
+  <data name="44818 es el de serie; cada instancia el suyo; 0 = sin servidor EtherNet/IP" xml:space="preserve">
+    <value>44818 és el de sèrie; cada instància el seu; 0 = sense servidor EtherNet/IP</value>
+  </data>
+  <data name="Puerto Modbus TCP" xml:space="preserve">
+    <value>Port Modbus TCP</value>
+  </data>
+  <data name="502 es el de serie; 0 = sin servidor Modbus. Solo arranca si el programa trae su tabla Modbus." xml:space="preserve">
+    <value>502 és el de sèrie; 0 = sense servidor Modbus. Només arrenca si el programa porta la seva taula Modbus.</value>
+  </data>
+  <data name="Ciclo (ms)" xml:space="preserve">
+    <value>Cicle (ms)</value>
+  </data>
+  <data name="Lo que avanza el reloj del PLC en cada ciclo" xml:space="preserve">
+    <value>El que avança el rellotge del PLC a cada cicle</value>
+  </data>
+  <data name="Velocidad" xml:space="preserve">
+    <value>Velocitat</value>
+  </data>
+  <data name="1 = tiempo real; 10 = el reloj del PLC va diez veces más deprisa" xml:space="preserve">
+    <value>1 = temps real; 10 = el rellotge del PLC va deu vegades més de pressa</value>
+  </data>
+  <data name="RUN al encender" xml:space="preserve">
+    <value>RUN en encendre</value>
+  </data>
+  <data name="Recargar solo" xml:space="preserve">
+    <value>Recarregar sol</value>
+  </data>
+  <data name="Cuando FactoryNodes deja un programa nuevo en la carpeta, se carga solo (como una descarga: se conservan los valores de lo que sigue igual)" xml:space="preserve">
+    <value>Quan FactoryNodes deixa un programa nou a la carpeta, es carrega sol (com una descàrrega: es conserven els valors del que continua igual)</value>
+  </data>
+  <data name="Variables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
+  <data name="Buscar una variable por su nombre (Motor1, Status.Run, io_)" xml:space="preserve">
+    <value>Cercar una variable pel seu nom (Motor1, Status.Run, io_)</value>
+  </data>
+  <data name="Variable" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="Tipo" xml:space="preserve">
+    <value>Tipus</value>
+  </data>
+  <data name="Valor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Escribe un valor y pulsa Tab para ponerlo en el PLC (como forzar una entrada: el programa puede volver a escribirlo)" xml:space="preserve">
+    <value>Escriu un valor i prem Tab per posar-lo al PLC (com forçar una entrada: el programa el pot tornar a escriure)</value>
+  </data>
+  <data name="Registro" xml:space="preserve">
+    <value>Registre</value>
+  </data>
+  <data name="Encendido, cargas, paros, fallos y los clientes que se conectan (también en registro.log de la carpeta de la instancia)" xml:space="preserve">
+    <value>Encesa, càrregues, aturades, fallades i els clients que es connecten (també a registro.log de la carpeta de la instància)</value>
+  </data>
+  <data name="Nueva instancia…" xml:space="preserve">
+    <value>Nova instància…</value>
+  </data>
+  <data name="Programas de SoftNodes (*.softnodes)" xml:space="preserve">
+    <value>Programes de SoftNodes (*.softnodes)</value>
+  </data>
+  <data name="Hay instancias encendidas: al cerrar se apagan (y se guarda su retentiva). ¿Cerrar?" xml:space="preserve">
+    <value>Hi ha instàncies enceses: en tancar s'apaguen (i es desa la seva retentiva). Vols tancar?</value>
+  </data>
+  <data name="No hay instancias: crea una con el programa que guarda FactoryNodes («Exportar a PLC» ▸ SoftNodes)." xml:space="preserve">
+    <value>No hi ha instàncies: crea'n una amb el programa que desa FactoryNodes («Exportar a PLC» ▸ SoftNodes).</value>
+  </data>
+  <data name="No se pudo abrir la instancia «{0}»: {1}" xml:space="preserve">
+    <value>No s'ha pogut obrir la instància «{0}»: {1}</value>
+  </data>
+  <data name="No se pudo crear la instancia: {0}" xml:space="preserve">
+    <value>No s'ha pogut crear la instància: {0}</value>
+  </data>
+  <data name="Instancia «{0}» creada con el programa «{1}». Enciéndela para publicarla." xml:space="preserve">
+    <value>Instància «{0}» creada amb el programa «{1}». Encén-la per publicar-la.</value>
+  </data>
+  <data name="¿Borrar la instancia «{0}» y su carpeta (programa, retentiva y registro)?" xml:space="preserve">
+    <value>Vols esborrar la instància «{0}» i la seva carpeta (programa, retentiva i registre)?</value>
+  </data>
+  <data name="Instancia «{0}» borrada." xml:space="preserve">
+    <value>Instància «{0}» esborrada.</value>
+  </data>
+  <data name="Para cambiar de idioma el programa se vuelve a abrir y se apagan las instancias. ¿Seguir?" xml:space="preserve">
+    <value>Per canviar d'idioma el programa es torna a obrir i s'apaguen les instàncies. Vols continuar?</value>
+  </data>
+  <data name="Apagada" xml:space="preserve">
+    <value>Apagada</value>
+  </data>
+  <data name="STOP por fallo: {0}" xml:space="preserve">
+    <value>STOP per fallada: {0}</value>
+  </data>
+  <data name="Programa «{0}» (autómata {1}) · {2} ciclos" xml:space="preserve">
+    <value>Programa «{0}» (PLC {1}) · {2} cicles</value>
+  </data>
+  <data name="Programa «{0}» · {1} ciclos" xml:space="preserve">
+    <value>Programa «{0}» · {1} cicles</value>
+  </data>
+  <data name="¿Arranque en frío? Todas las variables vuelven a su valor inicial, también la retentiva." xml:space="preserve">
+    <value>Arrencada en fred? Totes les variables tornen al valor inicial, també la retentiva.</value>
+  </data>
+  <data name="Apagar: para el PLC, guarda la memoria retentiva y cierra los servidores." xml:space="preserve">
+    <value>Apagar: atura el PLC, desa la memòria retentiva i tanca els servidors.</value>
+  </data>
+  <data name="Encender: servidores OPC UA, EtherNet/IP y Modbus, la retentiva de la última vez y RUN si está marcado." xml:space="preserve">
+    <value>Encendre: servidors OPC UA, EtherNet/IP i Modbus, la retentiva de l'última vegada i RUN si està marcat.</value>
+  </data>
+  <data name="El programa no tiene variables." xml:space="preserve">
+    <value>El programa no té variables.</value>
+  </data>
+  <data name="{0} de {1} variables (escribe para buscar)" xml:space="preserve">
+    <value>{0} de {1} variables (escriu per cercar)</value>
+  </data>
+  <data name="{0} variables" xml:space="preserve">
+    <value>{0} variables</value>
+  </data>
+  <data name="«{0}» no vale para un {1}." xml:space="preserve">
+    <value>«{0}» no val per a un {1}.</value>
+  </data>
+</root>

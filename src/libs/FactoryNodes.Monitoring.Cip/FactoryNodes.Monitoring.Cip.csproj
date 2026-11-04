@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Conexión con un PLC Omron NJ/NX por EtherNet/IP (CIP, mensajes explícitos por nombre de variable; PENDIENTES 135), para
+       los que no tienen OPC UA; y los equipos por clase/instancia/atributo (PENDIENTES 45). C# puro, sin DLL nativas (va también en la Factory Box Linux). net8.0, sin UI, sin disco. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="FactoryNodes.Monitoring.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.Monitoring\FactoryNodes.Monitoring.csproj" />
+    <ProjectReference Include="..\FactoryNodes.Iec61131\FactoryNodes.Iec61131.csproj" />
+    <ProjectReference Include="..\FactoryNodes.Devices\FactoryNodes.Devices.csproj" />
+  </ItemGroup>
+
+</Project>

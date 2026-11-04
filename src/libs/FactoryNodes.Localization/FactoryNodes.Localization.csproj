@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Multiidioma de FactoryNodes y SoftNodes (PENDIENTES 82): los seis idiomas, cuál se usa al arrancar y la búsqueda de un
+       texto en los .resx de cada lib (la clave es el texto en castellano). Sin dependencias, sin disco: la cultura la pone
+       cada app (CultureInfo.CurrentUICulture). -->
+
+</Project>

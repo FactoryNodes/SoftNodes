@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2B2140" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Borrar la instancia: un PLC (caja con bornas y piloto) con una «X» roja. -->
+  <path d="M2.5 6H14.5V19H2.5Z"/>
+  <path d="M5 9H12"/>
+  <path d="M5 12H12"/>
+  <path d="M5 16H6M8 16H9M11 16H12"/>
+  <circle cx="18" cy="17" r="5" fill="#FFFFFF" stroke="#A32D2D"/>
+  <path d="M16.1 15.1L19.9 18.9M19.9 15.1L16.1 18.9" stroke="#A32D2D" stroke-width="2.2"/>
+</svg>

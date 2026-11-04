@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2B2140" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Nueva instancia: un PLC (caja con bornas y piloto) con un «+» verde. -->
+  <path d="M2.5 6H14.5V19H2.5Z"/>
+  <path d="M5 9H12"/>
+  <path d="M5 12H12"/>
+  <path d="M5 16H6M8 16H9M11 16H12"/>
+  <circle cx="18" cy="17" r="5" fill="#FFFFFF" stroke="#2E7D32"/>
+  <path d="M18 14.3V19.7M15.3 17H20.7" stroke="#2E7D32" stroke-width="2.2"/>
+</svg>

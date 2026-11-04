@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ViewModels del SoftNodes abierto (PENDIENTES 159, AGPL-3.0): las instancias, encender y apagar, RUN/STOP, cargar el programa, las variables y el
+       registro. net8.0, sin System.Windows.*: el UI WPF solo pinta (CLAUDE.md, reglas 6 y 7). Solo piezas abiertas. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <NeutralLanguage>es</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\*.svg" LogicalName="Icons/%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.Localization\FactoryNodes.Localization.csproj" />
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Instances\FactoryNodes.SoftNodes.Instances.csproj" />
+  </ItemGroup>
+
+</Project>

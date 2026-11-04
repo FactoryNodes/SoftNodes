@@ -1,0 +1,18 @@
+<Project>
+  <!-- Versión de los EXE (FactoryNodes y SoftNodes; autor, 2026-10-24: «añadimos el build a la versión, que se cambie cada vez que compilas»).
+       La base se sube a mano; la compilación sale sola de la fecha y la hora de cada compilación:
+       - «Acerca de» enseña InformationalVersion: 1.0.0+2026-10-24 15:30;
+       - las propiedades del .exe en Windows, FileVersion: 1.0.26297.1530 (año y día del año, hora y minuto; cada parte < 65536).
+       AssemblyVersion no cambia (1.0.0.0). Solo en los EXE: en las libs haría recompilar todo cada vez. -->
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <AppBuildDate>$([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm"))</AppBuildDate>
+    <AppBuildDay>$([MSBuild]::Add($([MSBuild]::Multiply($([MSBuild]::Modulo($([System.DateTime]::Now.Year), 100)), 1000)), $([System.DateTime]::Now.DayOfYear)))</AppBuildDay>
+    <AppBuildTime>$([System.DateTime]::Now.ToString("HHmm").TrimStart('0'))</AppBuildTime>
+    <AppBuildTime Condition="'$(AppBuildTime)' == ''">0</AppBuildTime>
+    <FileVersion>$(VersionPrefix.Substring(0, $(VersionPrefix.LastIndexOf('.')))).$(AppBuildDay).$(AppBuildTime)</FileVersion>
+    <InformationalVersion>$(VersionPrefix)+$(AppBuildDate)</InformationalVersion>
+    <!-- sin el «+commit» que añade el SDK: el commit no dice si había cambios sin guardar; la fecha sí distingue cada compilación -->
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Servidor EtherNet/IP (CIP, mensajes explícitos) de una instancia de SoftNodes (docs/PENDIENTES.md 168): sirve la memoria del PLC
+       simulado por nombre de variable (Read Tag, Write Tag, Multiple Service Packet, ListIdentity) como lo hace un Omron NJ/NX, para que el
+       cliente de FactoryNodes.Monitoring.Cip, otro SoftNodes o un PLC real le lean y escriban variables. C# puro, net8.0, sin UI. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryNodes.SoftNodes.Core\FactoryNodes.SoftNodes.Core.csproj" />
+    <ProjectReference Include="..\FactoryNodes.Monitoring.Cip\FactoryNodes.Monitoring.Cip.csproj" />
+  </ItemGroup>
+
+</Project>
