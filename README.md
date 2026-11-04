@@ -49,4 +49,4 @@ dotnet run --project src/apps/SoftNodes.Open
 ## License
 
 **AGPL-3.0** — see [LICENSE](LICENSE). SoftNodes is dual licensed: AGPL-3.0 for everyone, and a commercial license from FactoryNodes for those
-who cannot use the AGPL. Contributions need a contributor license agreement: see [CONTRIBUTING.md](CONTRIBUTING.md).
+who cannot use the AGPL. Contributions need the [contributor license agreement](CLA.md): see [CONTRIBUTING.md](CONTRIBUTING.md).
